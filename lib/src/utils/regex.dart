@@ -58,7 +58,7 @@ const urlRegexContent = "((http|https)://)(www.)?" +
 ///
 /// Supports English, Japanese, Korean, Spanish, Arabic, and Thai
 final hashTagReg = RegExp(
-  "(?!\\n)(?:^|\\s)(#([$detectionContentLetters]+))",
+  r'#([\w\u0621-\u064A\u0660-\u0669\u05D0-\u05EA\u0900-\u097F]+)',
   multiLine: true,
 );
 
