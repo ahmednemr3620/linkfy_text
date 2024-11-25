@@ -126,7 +126,7 @@ class LinkifyText extends StatelessWidget {
   /// Text(r'$$', semanticsLabel: 'Double dollars')
   /// ```
   final String? semanticsLabel;
-    final TextStyle? Function(Link) getCustomTextStyle;
+    final TextStyle? Function(Link)? getCustomTextStyle;
 
 
   /// {@macro flutter.painting.textPainter.textWidthBasis}
@@ -321,7 +321,7 @@ class LinkifySelectableText extends StatelessWidget {
   final TextStyle? linkStyle;
 
 
-  final TextStyle? Function(Link) getCustomTextStyle;
+  final TextStyle? Function(Link)? getCustomTextStyle;
 
   /// called when a formatted link is pressed, it returns the link as a parameter
   /// ```dart
@@ -382,7 +382,7 @@ TextSpan _linkify({
   TextStyle? linkStyle,
   List<LinkType>? linkTypes,
   Map<LinkType, TextStyle>? customLinkStyles,
-  TextStyle? Function(Link) getCustomTextStyle,
+  TextStyle? Function(Link)? getCustomTextStyle,
   Function(Link)? onTap,
 }) {
   final _regExp = constructRegExpFromLinkType(linkTypes ?? [LinkType.url]);
