@@ -315,6 +315,9 @@ class LinkifySelectableText extends StatelessWidget {
   /// [textStyle] added to the formatted links in the text
   final TextStyle? linkStyle;
 
+
+  final TextStyle? Function(Link) getCustomTextStyle;
+
   /// called when a formatted link is pressed, it returns the link as a parameter
   /// ```dart
   ///   LinkifyText("#helloWorld", onTap: (link) {
@@ -395,7 +398,7 @@ TextSpan _linkify({
       spans.add(
         TextSpan(
           text: link.value,
-          style: customLinkStyles?[link.type] ?? linkStyle,
+          style:getCustomTextStyle(link)?? customLinkStyles?[link.type] ?? linkStyle,
           recognizer: TapGestureRecognizer()
             ..onTap = () {
               if (onTap != null) onTap(link);
