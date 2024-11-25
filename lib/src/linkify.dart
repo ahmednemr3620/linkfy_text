@@ -405,7 +405,7 @@ TextSpan _linkify({
       spans.add(
         TextSpan(
           text: link.value,
-          style:getCustomTextStyle?.call(link),
+          style:getCustomTextStyle?.call(link)?? customLinkStyles?[link.type] ?? linkStyle,
           recognizer: TapGestureRecognizer()
             ..onTap = () {
               if (onTap != null) onTap(link);
