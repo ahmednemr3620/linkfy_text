@@ -17,6 +17,7 @@ class LinkifyText extends StatelessWidget {
       this.strutStyle,
       this.textAlign,
       this.textDirection,
+       this.getCustomTextStyle,
       this.locale,
       this.softWrap,
       this.overflow,
@@ -125,6 +126,8 @@ class LinkifyText extends StatelessWidget {
   /// Text(r'$$', semanticsLabel: 'Double dollars')
   /// ```
   final String? semanticsLabel;
+    final TextStyle? Function(Link) getCustomTextStyle;
+
 
   /// {@macro flutter.painting.textPainter.textWidthBasis}
   final TextWidthBasis? textWidthBasis;
@@ -138,6 +141,7 @@ class LinkifyText extends StatelessWidget {
           text: text,
           linkStyle: linkStyle,
           onTap: onTap,
+        getCustomTextStyle:getCustomTextStyle,
           linkTypes: linkTypes,
           customLinkStyles: customLinkStyles),
       key: key,
@@ -183,6 +187,7 @@ class LinkifySelectableText extends StatelessWidget {
     this.scrollPhysics,
     this.semanticsLabel,
     this.textHeightBehavior,
+     this.getCustomTextStyle,
     this.textWidthBasis,
     this.onSelectionChanged,
     this.customLinkStyles,
@@ -344,6 +349,7 @@ class LinkifySelectableText extends StatelessWidget {
       key: key,
       focusNode: focusNode,
       style: textStyle,
+      getCustomTextStyle:getCustomTextStyle,
       strutStyle: strutStyle,
       textAlign: textAlign,
       textDirection: textDirection,
@@ -376,6 +382,7 @@ TextSpan _linkify({
   TextStyle? linkStyle,
   List<LinkType>? linkTypes,
   Map<LinkType, TextStyle>? customLinkStyles,
+  TextStyle? Function(Link) getCustomTextStyle,
   Function(Link)? onTap,
 }) {
   final _regExp = constructRegExpFromLinkType(linkTypes ?? [LinkType.url]);
