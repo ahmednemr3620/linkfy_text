@@ -349,7 +349,7 @@ class LinkifySelectableText extends StatelessWidget {
       key: key,
       focusNode: focusNode,
       style: textStyle,
-      getCustomTextStyle:getCustomTextStyle,
+      // getCustomTextStyle:getCustomTextStyle,
       strutStyle: strutStyle,
       textAlign: textAlign,
       textDirection: textDirection,
